@@ -141,6 +141,31 @@ python app.py
 open http://localhost:5000
 ```
 
+### Opção 3: Expor acesso externo com ngrok
+
+Use esta opção para compartilhar temporariamente a aplicação via URL pública.
+
+```bash
+# 1. Com a aplicação já rodando em http://localhost:5000
+ngrok http 5000
+
+# 2. Copie a URL "https://...ngrok-free.app" exibida no terminal
+# e compartilhe com quem for acessar
+```
+
+Se o comando `ngrok http 5000` não iniciar e fechar com código 1, normalmente já existe outra sessão ngrok ativa.
+
+```bash
+# Verificar túnel ativo (endpoint local do ngrok)
+curl http://127.0.0.1:4040/api/tunnels
+
+# Encerrar processos ngrok (Windows PowerShell)
+taskkill /IM ngrok.exe /F
+
+# Encerrar processos ngrok (Linux/macOS)
+pkill ngrok
+```
+
 ---
 
 ## 📦 Instalação
