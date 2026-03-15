@@ -521,6 +521,21 @@ body {
     font-size: 0.92rem;
 }
 
+.generated-files-block {
+    border-top: 1px solid rgba(16, 24, 40, 0.1);
+    padding-top: 0.75rem;
+}
+
+.generated-files-list {
+    max-height: 220px;
+    overflow-y: auto;
+    border-radius: 10px;
+}
+
+.generated-files-list .list-group-item {
+    font-size: 0.95rem;
+}
+
 @media (max-width: 991.98px) {
 
     .panel-body,

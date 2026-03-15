@@ -499,17 +499,19 @@ async function viewJobDetails(jobId) {
         let filesHtml = '';
         if (Object.keys(files).length > 0) {
             filesHtml = `
-                <h6 class="mt-4">Arquivos Gerados</h6>
-                <div class="list-group">
-                    ${Object.entries(files).map(([ext, info]) => `
-                        <div class="list-group-item d-flex justify-content-between align-items-center">
-                            <div>
-                                <strong>.${ext}</strong>
-                                <small class="text-muted d-block">${info.description}</small>
+                <div class="generated-files-block mt-4">
+                    <h6 class="mb-2">Arquivos Gerados</h6>
+                    <div class="list-group generated-files-list">
+                        ${Object.entries(files).map(([ext, info]) => `
+                            <div class="list-group-item d-flex justify-content-between align-items-center py-2">
+                                <div>
+                                    <strong>.${ext}</strong>
+                                    <small class="text-muted d-block">${info.description}</small>
+                                </div>
+                                <span class="badge bg-secondary">${formatBytes(info.size)}</span>
                             </div>
-                            <span class="badge bg-secondary">${formatBytes(info.size)}</span>
-                        </div>
-                    `).join('')}
+                        `).join('')}
+                    </div>
                 </div>
             `;
         }
@@ -711,29 +713,43 @@ function renderVisualization(jobData, containerId = 'visualization-container') {
     const strandCounts = analytics.strand_counts || {};
     const hasAnalytics = Object.keys(analytics).length > 0;
 
-    const analyticsHtml = hasAnalytics ? `
+    const analyticsRows = [
+        ['N90', formatNumber(analytics.n90)],
+        ['N ratio (%)', formatPercent(analytics.n_ratio_pct, 3)],
+        ['Coding density (%)', formatPercent(analytics.coding_density_pct, 2)],
+        ['Total de features', formatNumber(analytics.feature_total)],
+        ['CDS hipotéticas', formatNumber(analytics.hypothetical_cds)],
+        ['CDS funcionais', formatNumber(analytics.functional_cds)],
+        ['Strand +', formatNumber(strandCounts.plus)],
+        ['Strand -', formatNumber(strandCounts.minus)],
+        ['Strand indefinida', formatNumber(strandCounts.unknown)],
+        ['Topologia dos replicons', topologyEntries.length > 0 ? topologyEntries.map(([k, v]) => `${k}: ${v}`).join(' | ') : '-'],
+        ['Completude', analytics.completeness ? `complete: ${analytics.completeness.complete || 0} | incomplete: ${analytics.completeness.incomplete || 0}` : '-'],
+        ['Tipos de features', featureTypeEntries.length > 0 ? featureTypeEntries.map(([k, v]) => `${k}: ${v}`).join(' | ') : '-']
+    ];
+
+    const analyticsHtml = `
         <div class="viz-analytics-card mt-3">
-            <h6 class="mb-3">Métricas analíticas extraídas pelo Bakta</h6>
-            <div class="viz-analytics-grid">
-                <div class="viz-analytics-item"><small>N90</small><strong>${formatNumber(analytics.n90 || 0)}</strong></div>
-                <div class="viz-analytics-item"><small>N ratio</small><strong>${formatPercent(analytics.n_ratio_pct || 0, 3)}</strong></div>
-                <div class="viz-analytics-item"><small>Coding density</small><strong>${formatPercent(analytics.coding_density_pct || 0, 2)}</strong></div>
-                <div class="viz-analytics-item"><small>Total de features</small><strong>${formatNumber(analytics.feature_total || 0)}</strong></div>
-                <div class="viz-analytics-item"><small>CDS hipotéticas</small><strong>${formatNumber(analytics.hypothetical_cds || 0)}</strong></div>
-                <div class="viz-analytics-item"><small>CDS funcionais</small><strong>${formatNumber(analytics.functional_cds || 0)}</strong></div>
-                <div class="viz-analytics-item"><small>Strand +</small><strong>${formatNumber(strandCounts.plus || 0)}</strong></div>
-                <div class="viz-analytics-item"><small>Strand -</small><strong>${formatNumber(strandCounts.minus || 0)}</strong></div>
+            <h6 class="mb-3">Tabela analítica pós-anotação</h6>
+            <div class="table-responsive">
+                <table class="table table-sm table-striped align-middle mb-0">
+                    <thead>
+                        <tr>
+                            <th style="width: 34%;">Métrica</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${analyticsRows.map(([label, value]) => `
+                            <tr>
+                                <td><strong>${label}</strong></td>
+                                <td>${value ?? '-'}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
             </div>
-            <div class="viz-analytics-meta mt-3">
-                <p class="mb-2"><strong>Topologia dos replicons:</strong> ${topologyEntries.length > 0 ? topologyEntries.map(([k, v]) => `${k}: ${v}`).join(' | ') : 'não informado'}</p>
-                <p class="mb-2"><strong>Completude:</strong> ${analytics.completeness ? `complete: ${analytics.completeness.complete || 0} | incomplete: ${analytics.completeness.incomplete || 0}` : 'não informado'}</p>
-                <p class="mb-0"><strong>Tipos de features:</strong> ${featureTypeEntries.length > 0 ? featureTypeEntries.map(([k, v]) => `${k}: ${v}`).join(' | ') : 'não informado'}</p>
-            </div>
-        </div>
-    ` : `
-        <div class="viz-analytics-card mt-3">
-            <h6 class="mb-2">Métricas analíticas extraídas pelo Bakta</h6>
-            <p class="text-muted mb-0">Este job não possui o bloco analítico completo no resumo salvo. Execute um novo job para visualizar N90, coding density, distribuição por strand e topologia.</p>
+            ${hasAnalytics ? '' : '<p class="text-muted mt-2 mb-0">Este job foi salvo antes do bloco analítico completo; execute novo job para preencher todos os campos.</p>'}
         </div>
     `;
 
