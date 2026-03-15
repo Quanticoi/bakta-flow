@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#43e97b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#38f9d7;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#f8fafc"/>
+  
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#1e293b">
+    PUC Minas - Bakta Architecture
+  </text>
+  
+  <!-- Browser/Client Layer -->
+  <rect x="350" y="80" width="500" height="120" rx="15" fill="url(#grad1)" filter="url(#shadow)"/>
+  <text x="600" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">
+    🌐 Client (Browser)
+  </text>
+  <text x="600" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white">
+    HTML5 + Bootstrap 5 + JavaScript
+  </text>
+  <text x="600" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#e2e8f0">
+    Drag &amp; Drop Upload • Dashboard • Visualization
+  </text>
+  
+  <!-- Arrow Down -->
+  <path d="M 600 200 L 600 240" stroke="#64748b" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#64748b"/>
+    </marker>
+  </defs>
+  <text x="620" y="225" font-family="Arial, sans-serif" font-size="12" fill="#64748b">HTTP/REST</text>
+  
+  <!-- Flask API Layer -->
+  <rect x="100" y="260" width="1000" height="150" rx="15" fill="url(#grad2)" filter="url(#shadow)"/>
+  <text x="600" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">
+    ⚡ Flask API Server (Python)
+  </text>
+  
+  <!-- API Components -->
+  <rect x="150" y="310" width="200" height="80" rx="10" fill="white" fill-opacity="0.95" filter="url(#shadow)"/>
+  <text x="250" y="335" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e293b">Routes</text>
+  <text x="250" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">/api/status</text>
+  <text x="250" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">/api/jobs • /api/upload</text>
+  
+  <rect x="400" y="310" width="200" height="80" rx="10" fill="white" fill-opacity="0.95" filter="url(#shadow)"/>
+  <text x="500" y="335" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e293b">Pipeline</text>
+  <text x="500" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">BaktaPipeline</text>
+  <text x="500" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">Async Processing</text>
+  
+  <rect x="650" y="310" width="200" height="80" rx="10" fill="white" fill-opacity="0.95" filter="url(#shadow)"/>
+  <text x="750" y="335" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e293b">File I/O</text>
+  <text x="750" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">Upload Handler</text>
+  <text x="750" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">Results Parser</text>
+  
+  <!-- Arrow Down -->
+  <path d="M 600 410 L 600 450" stroke="#64748b" stroke-width="3" fill="none" marker-end="url(#arrowhead2)"/>
+  <defs>
+    <marker id="arrowhead2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#64748b"/>
+    </marker>
+  </defs>
+  <text x="620" y="435" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Subprocess/CLI</text>
+  
+  <!-- Bakta Engine Layer -->
+  <rect x="100" y="470" width="1000" height="140" rx="15" fill="url(#grad3)" filter="url(#shadow)"/>
+  <text x="600" y="500" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">
+    🧬 Bakta Annotation Engine
+  </text>
+  
+  <!-- Bakta Components -->
+  <rect x="130" y="525" width="120" height="60" rx="8" fill="white" fill-opacity="0.95"/>
+  <text x="190" y="550" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e293b">Prodigal</text>
+  <text x="190" y="568" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#64748b">CDS Prediction</text>
+  
+  <rect x="270" y="525" width="120" height="60" rx="8" fill="white" fill-opacity="0.95"/>
+  <text x="330" y="550" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e293b">tRNAscan-SE</text>
+  <text x="330" y="568" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#64748b">tRNA Detection</text>
+  
+  <rect x="410" y="525" width="120" height="60" rx="8" fill="white" fill-opacity="0.95"/>
+  <text x="470" y="550" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e293b">HMMER</text>
+  <text x="470" y="568" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Protein Domains</text>
+  
+  <rect x="550" y="525" width="120" height="60" rx="8" fill="white" fill-opacity="0.95"/>
+  <text x="610" y="550" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e293b">Diamond</text>
+  <text x="610" y="568" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Protein Align</text>
+  
+  <rect x="690" y="525" width="120" height="60" rx="8" fill="white" fill-opacity="0.95"/>
+  <text x="750" y="550" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e293b">INFERNAL</text>
+  <text x="750" y="568" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#64748b">ncRNA Detection</text>
+  
+  <rect x="830" y="525" width="120" height="60" rx="8" fill="white" fill-opacity="0.95"/>
+  <text x="890" y="550" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e293b">AMRFinder+</text>
+  <text x="890" y="568" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#64748b">AMR Genes</text>
+  
+  <!-- Arrow Down -->
+  <path d="M 600 610 L 600 650" stroke="#64748b" stroke-width="3" fill="none" marker-end="url(#arrowhead3)"/>
+  <defs>
+    <marker id="arrowhead3" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#64748b"/>
+    </marker>
+  </defs>
+  
+  <!-- Data Layer -->
+  <rect x="100" y="670" width="1000" height="110" rx="15" fill="url(#grad4)" filter="url(#shadow)"/>
+  <text x="600" y="700" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">
+    💾 Data Storage
+  </text>
+  
+  <text x="200" y="730" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">📁 Bakta DB (~1.3GB)</text>
+  <text x="200" y="750" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#e2e8f0">Annotation Database</text>
+  
+  <text x="450" y="730" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">📁 resultados/</text>
+  <text x="450" y="750" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#e2e8f0">Job Outputs (JSON, GFF3)</text>
+  
+  <text x="700" y="730" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">📁 data/uploads/</text>
+  <text x="700" y="750" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#e2e8f0">User Uploads</text>
+  
+  <text x="950" y="730" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">📁 data/templates/</text>
+  <text x="950" y="750" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#e2e8f0">Reference Genomes</text>
+</svg>

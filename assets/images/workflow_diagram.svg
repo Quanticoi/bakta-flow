@@ -1,0 +1,172 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="1000" height="600">
+  <defs>
+    <linearGradient id="userGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="processGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="completeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#43e97b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#38f9d7;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1000" height="600" fill="#f8fafc"/>
+  
+  <!-- Title -->
+  <text x="500" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#1e293b">
+    Workflow: Genome Annotation Process
+  </text>
+  
+  <!-- Step 1: User Input -->
+  <circle cx="150" cy="120" r="40" fill="url(#userGrad)" filter="url(#shadow)"/>
+  <text x="150" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="white">1</text>
+  <text x="150" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e293b">User Input</text>
+  <text x="150" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">Upload FASTA or</text>
+  <text x="150" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">Select Template</text>
+  
+  <!-- Arrow -->
+  <path d="M 200 120 L 250 120" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#64748b"/>
+    </marker>
+  </defs>
+  
+  <!-- Step 2: Validation -->
+  <rect x="260" y="90" width="100" height="60" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" filter="url(#shadow)"/>
+  <text x="310" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#92400e">Validation</text>
+  <text x="310" y="135" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#a16207">Format Check</text>
+  <text x="310" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#a16207">Size Check</text>
+  
+  <!-- Decision Diamond -->
+  <polygon points="390,120 410,90 450,120 410,150" fill="#fee2e2" stroke="#ef4444" stroke-width="2"/>
+  <text x="420" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#991b1b">Valid?</text>
+  <text x="420" y="128" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#991b1b">Format</text>
+  
+  <!-- Error Path -->
+  <path d="M 410 150 L 410 200" stroke="#ef4444" stroke-width="2" fill="none" marker-end="url(#arrowRed)"/>
+  <defs>
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#ef4444"/>
+    </marker>
+  </defs>
+  <text x="425" y="175" font-family="Arial, sans-serif" font-size="9" fill="#ef4444">No</text>
+  
+  <rect x="360" y="200" width="100" height="40" rx="5" fill="#fee2e2" stroke="#ef4444" stroke-width="1"/>
+  <text x="410" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#991b1b">❌ Error</text>
+  
+  <!-- Valid Path -->
+  <path d="M 450 120 L 500 120" stroke="#22c55e" stroke-width="2" fill="none" marker-end="url(#arrowGreen)"/>
+  <defs>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#22c55e"/>
+    </marker>
+  </defs>
+  <text x="470" y="110" font-family="Arial, sans-serif" font-size="9" fill="#22c55e">Yes</text>
+  
+  <!-- Step 3: Processing -->
+  <circle cx="560" cy="120" r="40" fill="url(#processGrad)" filter="url(#shadow)"/>
+  <text x="560" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="white">2</text>
+  <text x="560" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e293b">Annotation</text>
+  <text x="560" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">Bakta Engine</text>
+  <text x="560" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">Async Processing</text>
+  
+  <!-- Progress Bar -->
+  <rect x="520" y="240" width="80" height="12" rx="6" fill="#e2e8f0"/>
+  <rect x="520" y="240" width="48" height="12" rx="6" fill="#3b82f6"/>
+  <text x="560" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#64748b">60% - Processing...</text>
+  
+  <!-- Arrow -->
+  <path d="M 610 120 L 660 120" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- Step 4: Results -->
+  <circle cx="720" cy="120" r="40" fill="url(#completeGrad)" filter="url(#shadow)"/>
+  <text x="720" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="white">3</text>
+  <text x="720" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e293b">Results</text>
+  <text x="720" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">JSON • GFF3</text>
+  <text x="720" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">FAA • FFN</text>
+  
+  <!-- Arrow -->
+  <path d="M 770 120 L 820 120" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- Step 5: Visualization -->
+  <rect x="830" y="85" width="120" height="70" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" filter="url(#shadow)"/>
+  <text x="890" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e40af">📊 Dashboard</text>
+  <text x="890" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#3b82f6">View Stats</text>
+  <text x="890" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#3b82f6">Download Files</text>
+  
+  <!-- Detailed Process Flow (Bottom) -->
+  <text x="500" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1e293b">
+    Detailed Bakta Pipeline Steps
+  </text>
+  
+  <!-- Step Boxes -->
+  <rect x="50" y="350" width="130" height="80" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1" filter="url(#shadow)"/>
+  <text x="115" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#92400e">1. Input Processing</text>
+  <text x="115" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#a16207">• FASTA validation</text>
+  <text x="115" y="410" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#a16207">• Genome stats</text>
+  
+  <rect x="200" y="350" width="130" height="80" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1" filter="url(#shadow)"/>
+  <text x="265" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#1e40af">2. Gene Prediction</text>
+  <text x="265" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#3b82f6">• Prodigal (CDS)</text>
+  <text x="265" y="410" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#3b82f6">• Feature detection</text>
+  
+  <rect x="350" y="350" width="130" height="80" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1" filter="url(#shadow)"/>
+  <text x="415" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#9d174d">3. RNA Detection</text>
+  <text x="415" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#db2777">• tRNAscan-SE</text>
+  <text x="415" y="410" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#db2777">• INFERNAL</text>
+  
+  <rect x="500" y="350" width="130" height="80" rx="8" fill="#e0e7ff" stroke="#6366f1" stroke-width="1" filter="url(#shadow)"/>
+  <text x="565" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#3730a3">4. Functional Annot</text>
+  <text x="565" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#6366f1">• Diamond (homology)</text>
+  <text x="565" y="410" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#6366f1">• HMMER (domains)</text>
+  
+  <rect x="650" y="350" width="130" height="80" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="1" filter="url(#shadow)"/>
+  <text x="715" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#065f46">5. AMR/Annotation</text>
+  <text x="715" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#059669">• AMRFinderPlus</text>
+  <text x="715" y="410" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#059669">• CRISPR detection</text>
+  
+  <rect x="800" y="350" width="130" height="80" rx="8" fill="#f3e8ff" stroke="#a855f7" stroke-width="1" filter="url(#shadow)"/>
+  <text x="865" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#6b21a8">6. Output Generation</text>
+  <text x="865" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#a855f7">• JSON • GFF3</text>
+  <text x="865" y="410" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#a855f7">• FAA • FFN</text>
+  
+  <!-- Arrows between steps -->
+  <path d="M 180 390 L 195 390" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 330 390 L 345 390" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 480 390 L 495 390" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 630 390 L 645 390" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 780 390 L 795 390" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Timeline -->
+  <text x="500" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#64748b">
+    ⏱️ Typical Processing Time: 2-5 minutes for a 5Mb genome
+  </text>
+  
+  <!-- Legend -->
+  <rect x="50" y="510" width="900" height="70" rx="10" fill="white" stroke="#e2e8f0" stroke-width="1" filter="url(#shadow)"/>
+  <text x="70" y="535" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e293b">Legend:</text>
+  
+  <circle cx="150" cy="555" r="8" fill="url(#userGrad)"/>
+  <text x="170" y="560" font-family="Arial, sans-serif" font-size="11" fill="#64748b">User Action</text>
+  
+  <circle cx="280" cy="555" r="8" fill="url(#processGrad)"/>
+  <text x="300" y="560" font-family="Arial, sans-serif" font-size="11" fill="#64748b">Processing</text>
+  
+  <circle cx="420" cy="555" r="8" fill="url(#completeGrad)"/>
+  <text x="440" y="560" font-family="Arial, sans-serif" font-size="11" fill="#64748b">Complete</text>
+  
+  <rect x="540" y="547" width="20" height="16" rx="3" fill="#fee2e2" stroke="#ef4444"/>
+  <text x="570" y="560" font-family="Arial, sans-serif" font-size="11" fill="#64748b">Error</text>
+  
+  <rect x="640" y="547" width="20" height="16" rx="3" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="670" y="560" font-family="Arial, sans-serif" font-size="11" fill="#64748b">Validation</text>
+</svg>

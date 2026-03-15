@@ -1,0 +1,26 @@
+name: bakta_env
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - biopython
+  - requests
+  - pyrodigal
+  - trnascan-se
+  - aragorn
+  - infernal
+  - piler-cr
+  - prodigal
+  - diamond
+  - blast
+  - hmmer
+  - pip:
+    - bakta
+    - baktaplot
+    - flask
+    - flask-cors
+    - werkzeug
+    - gunicorn

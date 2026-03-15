@@ -1,0 +1,494 @@
+/**
+ * PUC Minas - Bakta Web Application
+ * Estilos customizados
+ */
+
+/* Variáveis */
+:root {
+    --puc-primary: #003366;
+    --puc-secondary: #0066CC;
+    --puc-accent: #FF6600;
+    --puc-light: #E6F2FF;
+    --puc-dark: #001a33;
+}
+
+/* Animações */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Classes de utilidade */
+.fade-in {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.slide-in {
+    animation: slideInRight 0.3s ease-out;
+}
+
+.pulse-animation {
+    animation: pulse 2s infinite;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--puc-secondary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--puc-primary);
+}
+
+/* Tooltips customizados */
+.custom-tooltip {
+    position: relative;
+    cursor: help;
+}
+
+.custom-tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 10px;
+    background: var(--puc-primary);
+    color: white;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.custom-tooltip:hover::after {
+    opacity: 1;
+    visibility: visible;
+    bottom: calc(100% + 5px);
+}
+
+/* Cards interativos */
+.interactive-card {
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.interactive-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* Efeito de loading shimmer */
+.shimmer {
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Botões customizados */
+.btn-puc {
+    background: linear-gradient(135deg, var(--puc-secondary) 0%, var(--puc-primary) 100%);
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-puc::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: left 0.5s ease;
+}
+
+.btn-puc:hover::before {
+    left: 100%;
+}
+
+.btn-puc:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 102, 204, 0.3);
+    color: white;
+}
+
+/* Badges animados */
+.badge-animated {
+    animation: pulse 2s infinite;
+}
+
+/* Tabela de resultados */
+.results-table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.results-table th {
+    background: var(--puc-light);
+    color: var(--puc-primary);
+    font-weight: 600;
+    border-bottom: 2px solid var(--puc-secondary);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.results-table tbody tr {
+    transition: background 0.2s ease;
+}
+
+.results-table tbody tr:hover {
+    background: var(--puc-light);
+}
+
+/* Visualização de código */
+.code-block {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    padding: 15px;
+    border-radius: 8px;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 0.9rem;
+    overflow-x: auto;
+}
+
+.code-block .comment { color: #6a9955; }
+.code-block .keyword { color: #569cd6; }
+.code-block .string { color: #ce9178; }
+.code-block .number { color: #b5cea8; }
+
+/* Switch toggle */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 24px;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+    background-color: var(--puc-secondary);
+}
+
+input:checked + .toggle-slider:before {
+    transform: translateX(26px);
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--puc-secondary);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -24px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--puc-secondary);
+    border: 2px solid white;
+    box-shadow: 0 0 0 2px var(--puc-secondary);
+}
+
+.timeline-item.completed::before {
+    background: #28a745;
+    box-shadow: 0 0 0 2px #28a745;
+}
+
+.timeline-item.error::before {
+    background: #dc3545;
+    box-shadow: 0 0 0 2px #dc3545;
+}
+
+/* Gráfico de barras simples */
+.bar-chart {
+    display: flex;
+    align-items: flex-end;
+    height: 150px;
+    gap: 10px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.bar-item {
+    flex: 1;
+    background: var(--puc-secondary);
+    border-radius: 4px 4px 0 0;
+    transition: all 0.3s ease;
+    position: relative;
+    min-height: 5px;
+}
+
+.bar-item:hover {
+    background: var(--puc-primary);
+}
+
+.bar-item::after {
+    content: attr(data-value);
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: var(--puc-primary);
+}
+
+.bar-item::before {
+    content: attr(data-label);
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.7rem;
+    white-space: nowrap;
+    color: #666;
+}
+
+/* File tree */
+.file-tree {
+    list-style: none;
+    padding-left: 0;
+}
+
+.file-tree ul {
+    list-style: none;
+    padding-left: 20px;
+    border-left: 1px dashed #ccc;
+    margin-left: 10px;
+}
+
+.file-tree li {
+    padding: 5px 0;
+    position: relative;
+}
+
+.file-tree li::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 15px;
+    width: 15px;
+    height: 1px;
+    background: #ccc;
+}
+
+.file-tree .folder {
+    color: var(--puc-secondary);
+    font-weight: 600;
+}
+
+.file-tree .file {
+    color: #666;
+}
+
+/* Modal de visualização */
+.genome-viewer {
+    background: #1a1a2e;
+    border-radius: 8px;
+    padding: 20px;
+    min-height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.genome-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.genome-feature {
+    position: absolute;
+    height: 3px;
+    background: var(--puc-accent);
+    border-radius: 2px;
+    transform-origin: left center;
+}
+
+/* Responsividade adicional */
+@media (max-width: 768px) {
+    .stat-card {
+        margin-bottom: 15px;
+    }
+    
+    .upload-area {
+        padding: 20px;
+    }
+    
+    .upload-area h5 {
+        font-size: 1rem;
+    }
+    
+    .timeline {
+        padding-left: 20px;
+    }
+    
+    .timeline-item::before {
+        left: -18px;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        color: #e0e0e0;
+    }
+    
+    .card {
+        background: #252542;
+        color: #e0e0e0;
+    }
+    
+    .card-header {
+        background: linear-gradient(135deg, #1a1a2e 0%, #252542 100%);
+        color: #fff;
+    }
+    
+    .text-muted {
+        color: #a0a0a0 !important;
+    }
+}
+
+/* Print styles */
+@media print {
+    .navbar,
+    .upload-area,
+    .btn,
+    .footer {
+        display: none !important;
+    }
+    
+    .card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+}

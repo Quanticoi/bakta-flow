@@ -1,0 +1,62 @@
+{
+  "version": "1.9.4",
+  "genome": {
+    "genus": "Escherichia",
+    "species": "coli",
+    "strain": "K-12",
+    "complete": true,
+    "gram": "-"
+  },
+  "stats": {
+    "genome_size": 4639675,
+    "gc": 50.79,
+    "n_contigs": 1,
+    "n50": 4639675,
+    "cds": 4243,
+    "genes": 4243,
+    "trnas": 89,
+    "rrnas": 22,
+    "ncrnas": 15,
+    "tmrnas": 1,
+    "features": 4471
+  },
+  "features": [
+    {
+      "type": "cds",
+      "contig": "NC_000913.3",
+      "start": 190,
+      "stop": 255,
+      "strand": "+",
+      "gene": "thrL",
+      "product": "thr operon leader peptide",
+      "db_xrefs": ["UniProtKB:P0AD86"]
+    },
+    {
+      "type": "cds",
+      "contig": "NC_000913.3",
+      "start": 337,
+      "stop": 2799,
+      "strand": "+",
+      "gene": "thrA",
+      "product": "Bifunctional aspartokinase/homoserine dehydrogenase 1",
+      "db_xrefs": ["UniProtKB:P00561"]
+    },
+    {
+      "type": "tRNA",
+      "contig": "NC_000913.3",
+      "start": 11163,
+      "stop": 11237,
+      "strand": "+",
+      "product": "tRNA-Gly (ggc)",
+      "db_xrefs": ["RFAM:RF00005"]
+    }
+  ],
+  "sequences": [
+    {
+      "id": "NC_000913.3",
+      "length": 4639675,
+      "gc": 50.79,
+      "header": "Escherichia coli str. K-12 substr. MG1655, complete genome"
+    }
+  ]
+}
