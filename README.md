@@ -8,7 +8,7 @@
 [![Docker](https://img.shields.io/badge/Docker-ready-blue.svg)](https://www.docker.com/)
 [![License](https://img.shields.io/badge/license-GPLv3-purple.svg)](LICENSE)
 
-> **Interface web moderna e intuitiva para anotação genômica bacteriana** utilizando [Bakta](https://github.com/oschwengers/bakta) - a ferramenta mais rápida e precisa para anotação de genomas.
+> **Interface web moderna e intuitiva para anotação genômica bacteriana** utilizando [Bakta](https://github.com/oschwengers/bakta) - uma ferramenta rápida e precisa para anotação de genomas.
 
 ![PUC Minas](https://img.shields.io/badge/PUC-Minas-blue?style=for-the-badge&logo=graduation-cap)
 
